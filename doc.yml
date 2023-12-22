@@ -1,0 +1,20 @@
+version: "3"
+services:
+  uservicedb:
+    image: mysql:8.0.31
+    #        networks:
+    #            - spring-mysql-net
+    environment:
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: snkh@22
+      MYSQL_DATABASE: uservicedb
+  spring-boot-mysql-app:
+    image: spring-boot-mysql-app
+    ports:
+      - "8100:8100"
+    #        networks:
+    #            - spring-mysql-net
+    depends_on:
+      - uservicedb
+#networks:
+#    spring-mysql-net:
